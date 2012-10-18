@@ -1,5 +1,3 @@
-
-
 /* User
  *
  * Object for user who makes a profile on the BookWorm.
@@ -10,14 +8,15 @@
  */
 
 
-var User = function(first, last, username, location, school, date){
+var User = function(first, last, username, locate, school, date, avatar){
 	this.rating;
 	this.first = first;
 	this.last = last;
 	this.username = username;
-	this.location = location;
+	this.locate = locate;
 	this.school = school;
 	this.date = date;
+	this.avatar = avatar;
 
 	this.wishlist = [];
 	this.booklist = [];
@@ -62,7 +61,7 @@ User.prototype.location = function(){
 	if (this.school){
 		return this.school;
 	}
-	return this.location;
+	return this.locate;
 }
 
 
