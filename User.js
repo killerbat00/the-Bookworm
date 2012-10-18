@@ -135,3 +135,12 @@ User.prototype.removebook = function(book){
 	this.wishlist.splice(delete,1);
 	return this.wishlist.toString();
  }
+	
+
+
+
+
+
+
+
+

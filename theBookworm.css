@@ -1,13 +1,13 @@
-#background {
-	background-repeat: no-repeat;
-	position:fixed; 
-	z-index:1; 
-	width:98%; 
-	height:100%;
-};
+#background { 
+	background-repeat: no-repeat; 
+	overflow: auto;
+	position:fixed;
+	z-index:1;
+	width:1254px; 
+	height:700px;
+}
 
-#fixed {
-	position:absolute; 
+#fixed{
 	top:25px; 
 	left:10px; 
 	width:160px; 
@@ -65,7 +65,7 @@
 	overflow:hidden;
 	margin-left: 650px;
 	margin-top: 0px;
-	padding-top: 50px;
+	padding-top: 25px;
 	white-space: nowrap;
 }
 
