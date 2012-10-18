@@ -1,6 +1,6 @@
 $(document).ready(function () {
-	alert('Init function');		
-	
+	alert('Init function');	
+		
 	build_user();
 	build_book_lists();
 });			
@@ -8,11 +8,15 @@ $(document).ready(function () {
 
 var build_user = function() {
 	var main_div = $('#user');
+	var user = User[0];
+	alert(String(user));
 	var user_uname = $('<p id="username"></p>');
 	var user_avatar = $('<img id = "usrimg" src="avatar.gif" alt="username" title="username"></img>');
 	var user_location = $('<p id="location"></p>');
 	var user_ranking = $('<p id="ranking"></p>');
-		
+	
+
+	//user_uname.append(User[0].username());	
 	user_uname.append('killerbat00');
 	user_location.append('UNC');
 	user_ranking.append('Ranking: <img class = "stars" src="Stars.png" alt="stars" title="stars"></p>');
