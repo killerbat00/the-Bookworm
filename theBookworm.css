@@ -139,22 +139,6 @@
 	height: auto;
 	
 }
-#useroffering p{
-	text-align: left;
-}
-
-#useroffering img{
-	border: 4px solid #556B25;
-	width: 100px;
-	height: auto;
-}
-
-
-#userresponse img{
-	border: 4px solid #447B14;
-	width: 100px;
-	height: auto;
-}
 
 ::-webkit-scrollbar {
     width: 12px;
