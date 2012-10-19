@@ -8,7 +8,7 @@
  */
 
 
-var User = function(first, last, username, locate, school, date, avatar){
+var User = function(first, last, username, locate, school, date){
 	this.rating;
 	this.first = first;
 	this.last = last;
@@ -16,7 +16,6 @@ var User = function(first, last, username, locate, school, date, avatar){
 	this.locate = locate;
 	this.school = school;
 	this.date = date;
-	this.avatar = avatar;
 
 	this.wishlist = [];
 	this.booklist = [];
