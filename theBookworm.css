@@ -1,18 +1,13 @@
-#background {
-	background-repeat: no-repeat;
-	position:fixed; 
-	z-index:1; 
-	width:98%; 
-	height:100%;
-};
+body{
+	margin-top: 0px;
+}
 
-#fixed {
-	position:absolute; 
-	top:25px; 
-	left:10px; 
-	width:160px; 
-	z-index:10; 
-	padding:10px;
+#background { 
+	background-repeat: no-repeat; 
+	z-index:1;
+	width:1254px; 
+	height:675px;
+	white-space: nowrap;
 }
 
 #scroller {
@@ -21,7 +16,6 @@
 	height:100%; 
 	top:0; 
 	left:0; 
-	overflow:auto; 
 	z-index:2;
 }
 
@@ -33,7 +27,6 @@
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	overflow : visible;
 	white-space: nowrap;
 }
 
@@ -41,20 +34,21 @@
 	width: 550px;
 	top: 20px;	
 	float: left;
-	position: fixed;
 	white-space: nowrap;
 	overflow: auto;
+	clear: both;
 }
 
-#right{	
-	top: 50%;
+#right{
+	position: fixed;	
+	top: 100%;
 	width: 400px;
    	height: 550px;
-	overflow:auto;
 	margin-left: 650px;
 	margin-top: 0px;
 	white-space: nowrap;
-	
+	overflow:auto;
+
 }
 
 
@@ -65,7 +59,7 @@
 	overflow:hidden;
 	margin-left: 650px;
 	margin-top: 0px;
-	padding-top: 50px;
+	padding-top: 25px;
 	white-space: nowrap;
 }
 
@@ -119,27 +113,26 @@
 }
 
 .book {
-	width: 50px;
-	border: 2px solid #ffffff;
-	text-align: center;
+	width: 50px
 } 
 
-#feed p{
+
+.feed p{
 	text-align: left;
 	margin: 0px;
 	margin-bottom: 30px;
 
 }
-#feed p:first-child {
+.feed p:first-child {
 	text-align: left;
 	padding-top: 30px;
 
 }
-#feed img{
+.feed img{
 	border: 4px solid #556B25;
 	width: 100px;
 	height: auto;
-	
+
 }
 
 ::-webkit-scrollbar {
