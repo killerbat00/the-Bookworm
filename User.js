@@ -7,7 +7,6 @@
  * Array of available book objects for wishlist and available book objects for available books
  */
 
-
 var User = function(first, last, username, locate, school, date){
 	this.rating;
 	this.first = first;
@@ -24,7 +23,7 @@ var User = function(first, last, username, locate, school, date){
 //keep track of other users that will rate this user
 	this.ratings = [];
 }
-
+/*
 //initial rating that will change to the average of this.ratings
 User.UNRATED = 0;
 
@@ -116,7 +115,7 @@ User.prototype.addwish = function(wish){
  *This removes a book to the User's booklist
  *NOTE: I did not put in a condition for if the book is not there assuming that delete with be something where the person can click and x at the book and delete
  *it so the user will never be able to delete a nonexistant book
- */
+*//*
 User.prototype.removebook = function(book){
 	var delete = this.booklist.indexOf(book);
 	this.booklist.splice(delete,1);
@@ -127,9 +126,9 @@ User.prototype.removebook = function(book){
  *The removes a wish from the User's wishlist
  *NOTE: I did not put in a condition for if the wish is not there assuming that delete with be something where the person can click and x at the book and delete
  *it so the user will never be able to delete a nonexistant book
- */
+ *//*
  User.prototype.removewish = function(wish){
 	var delete = this.wishlist.indexOf(wish);
 	this.wishlist.splice(delete,1);
 	return this.wishlist.toString();
- }
+ }*/
