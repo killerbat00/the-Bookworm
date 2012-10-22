@@ -20,7 +20,7 @@ body{
 }
 
 #content {
-	padding:20px 10px 10px 70px;
+	padding:10px 10px 10px 70px;
 }
 
 #main{
@@ -104,16 +104,17 @@ body{
 
 .books > div {
 	width: 540px;
-	height: 85px;
+	height: 80px;
 	overflow-x: auto;
 	overflow-y: hidden;
 	white-space: nowrap;
 }
 
-.book {
+#book {
 	width: 40px;
 	border: 2px solid #ffffff;
 } 
+
 
 
 #feed p{
@@ -147,6 +148,32 @@ body{
 	width: 100px;
 	height: auto;
 
+}
+
+.addbook {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background-color:#599426;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #000000;
+	display:inline-block;
+	color:#000000;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #aade7c;
+}
+.addbook:hover {
+	background-color:#deebd3;
+}
+.addbook:active {
+	position:relative;
+	top:1px;
 }
 
 ::-webkit-scrollbar {

@@ -1,5 +1,4 @@
 /*	Books
-*
 *	This file creates a Book object for each book on the BookWorm.
 *	Each Book object has attributes for ISBN number, Title, Author,
 *	Keywords (genre, etc - to facilitate searching), Type (tradeable/
@@ -10,18 +9,20 @@
 *
 */
 
-
-var book = function(isbn, title, author, keywords, trade, sell, textbook, price, school, course, inNegotiation){
+var book = function(isbn, title, author, genre, trade, sell, textbook, price, cover, rating, school, course, inNegotiation){
+	this.indicator = 'book';
 	this.isbn = isbn;
 	this.title = title;
 	this.author = author;
-	this.keywords = [];
-	this.trade = false;
-	this.sell = false;
-	this.textbook = true;
+	this.genre = genre;
+	this.trade = trade;
+	this.sell = sell;
+	this.textbook = textbook;
 	this.price = price;
-	this.school = [];
-	this.course = [];
+	this.rating = rating;
+	this.school = school;
+	this.course = course;
+	this.cover = cover;
 	this.inNegotiation = false;
 }
 /*	addKeyword()
@@ -53,8 +54,8 @@ book.prototype.price = function() {
 		return;
 	} else {
 		return this.price;
+	}
 }
-
 /*	school()
 *	returns the school (or schools) the book is associated with
 */
@@ -63,8 +64,8 @@ book.prototype.school = function() {
 		return this.school[0];
 	} else {
 		return this.school.toString();
+	}
 }
-
 /*	course()
 *	returns the course (or courses) this book is used in
 */
@@ -73,4 +74,5 @@ book.prototype.course = function() {
 		return this.course[0];
 	} else {
 		return this.course.toString();
+	}
 }

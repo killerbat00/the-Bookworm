@@ -7,7 +7,8 @@
  * Array of available book objects for wishlist and available book objects for available books
  */
 
-var User = function(first, last, username, locate, school, date){
+var User = function(first, last, username, locate, school, date, avatar, rating) {
+	this.indicator = 'user';
 	this.rating;
 	this.first = first;
 	this.last = last;
@@ -15,6 +16,8 @@ var User = function(first, last, username, locate, school, date){
 	this.locate = locate;
 	this.school = school;
 	this.date = date;
+	this.avatar = avatar;
+	this.rating = rating;
 
 	this.wishlist = [];
 	this.booklist = [];
@@ -23,9 +26,9 @@ var User = function(first, last, username, locate, school, date){
 //keep track of other users that will rate this user
 	this.ratings = [];
 }
-/*
-//initial rating that will change to the average of this.ratings
-User.UNRATED = 0;
+User.UNRATED = true;
+
+
 
 /*rating()
  *returns the User's rating
