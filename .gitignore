@@ -2,4 +2,4 @@
 *.gif
 *.jpg
 .*.*.swp
-jquery-1.8.1.js
+jquery*.js
