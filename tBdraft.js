@@ -18,8 +18,8 @@ var build_user = function() {
 	var user_avatar = $('<img id = "usrimg" src="'+user.avatar+'" alt="'+user.username+'" title="'+user.username+'"></img>');
 	var user_location = $('<p id="location"></p>');
 	var user_ranking = $('<p id="ranking"></p>');
-	var add_book = $('<p><a href="#" class ="addbook" >Add/Delete Book</a></p>');	
-	var helpful = $('<p id="helpful">(Click book for info)</p>');
+	var add_book = $('<p><a href="#" class ="addbook" >Add Book</a></p>');	
+	var helpful = $('<p id="helpful">(Click book to zoom)</p>');
 	
 	main_div.append(user_uname.append(user.username));
 	main_div.append(user_avatar);
@@ -61,7 +61,7 @@ var build_negot = function(type_div) {
 	for (var i = 0; i < book.all.length; i++) {
 		if (book.all[i].inNegotiation == true) { 
 			var cur_book = book.all[i];
-			books.push('<img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'">');
+			books.push('<a href="'+cur_book.cover+'"> <img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'"></a>');
 		}
 	}
 	for (i = 0; i < books.length; i++) {
@@ -76,7 +76,7 @@ var build_avail = function(type_div) {
 	var books = [];
 	for (var i = 0; i < User.all[0].booklist.length; i++) {
 		var cur_book = User.all[0].booklist[i];
-		books.push('<img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'">');
+		books.push('<a href="'+cur_book.cover+'"> <img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'"></a>');
 	}
 	for (i = 0; i < books.length; i++) {
 		type_div.append(books[i]);
@@ -90,7 +90,7 @@ var build_wish = function(type_div) {
 	var books = [];
 	for (var i = 0; i < User.all[0].wishlist.length; i++) {
 		var cur_book = User.all[0].wishlist[i];
-		books.push('<img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'">');
+		books.push('<a href="'+cur_book.cover+'"> <img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'"></a>');
 	}
 	for (i = 0; i < books.length; i++) {
 		type_div.append(books[i]);
@@ -106,16 +106,16 @@ var build_hist = function(type_div) {
 	for (var i = 0; i < book.all.length; i++) {
 		if (book.all[i].inNegotiation == true) { 
 			var cur_book = book.all[i];
-			books.push('<img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'">');
+			books.push('<a href="'+cur_book.cover+'"> <img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'"></a>');
 		}
 	}
 	for (i = 0; i < books.length; i++) {
 		type_div.append(books[i]);	
 	}
 }
-/* Builds a feed
-* needs to be event-driven
-* to hide news stories
+
+/* 
+* Builds a feed
 */
 var build_feed = function() {
 	var root_div = $('#feed');
@@ -134,7 +134,7 @@ var build_feed = function() {
 }
 
 /*
-* manage feed actions
+* Manage feed actions
 */
 var manage_feed = function() {
 	//Show hide option on mouseenter
@@ -173,6 +173,8 @@ var manage_lists = function() {
 	$(".books img").mouseleave(function(e) {
 		$(this).css("border", "2px solid #ffffff");
 	});
+
+	$(".books a").lightBox();
 }	
 /*TODO
 * clean-up jquery code

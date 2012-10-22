@@ -115,12 +115,15 @@ body{
 	white-space: nowrap;
 }
 
-.bookimg {
+.books a {
+	text-decoration: none;
+	border: 0 none;
+}
+
+.books > div img {
 	width: 40px;
 	border: 2px solid #ffffff;
-} 
-
-
+}
 
 #feed p{
 	text-align: left;
