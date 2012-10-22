@@ -94,7 +94,7 @@ User.prototype.rating = function(rate){
 
 /*addbook()
  *This adds a book to the User's booklist
- */
+ *//*
 User.prototype.addbook =function(book){
 	if(booklist.indexOf(book)== -1)
 		return false;
@@ -105,13 +105,12 @@ User.prototype.addbook =function(book){
 
 /*addwish()
  *This adds a wish to the User's wishlist
- */
+ *//*
 User.prototype.addwish = function(wish){
 	if(wishlist.indexOf(wish) == -1)
 		return false;
 	else
 		this.wishlist.push(wish);
-	return true;
 }
 
 /*removebook()

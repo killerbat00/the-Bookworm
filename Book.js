@@ -23,7 +23,7 @@ var book = function(isbn, title, author, genre, trade, sell, textbook, price, co
 	this.school = school;
 	this.course = course;
 	this.cover = cover;
-	this.inNegotiation = false;
+	this.inNegotiation = inNegotiation;
 }
 /*	addKeyword()
 *	add's keywords to an array associated.

@@ -1,11 +1,10 @@
 $(document).ready(function () {
 //	alert('Init function');	
-	var first = true;
 	build_user();
 	build_book_lists();
 	build_feed();
 	manage_feed();
-	manage_lists(first);
+	manage_lists();
 });
 
 /*
@@ -47,25 +46,72 @@ var build_book_lists = function() {
 	var wish_div = $('#wishlist');
 	var hist_div = $('#history');
 	
-	build_list(negot_div);
-	build_list(avail_div);
-	build_list(wish_div);
-	build_list(hist_div);
+	build_negot(negot_div);
+	build_avail(avail_div);
+	build_wish(wish_div);
+	build_hist(hist_div);
 	
 }
 
 /*
-* helper function
-* to build list
+* builds negotiation list
 */
-var build_list = function(type_div) {
-	var books = [];	
-	var books2 = [];
-	for(var i = 0; i < book.all.length; i++){
-		books.push('<img id = "'+book.all[i].title+'"class = "bookimg" src = "'+book.all[i].cover+'" alt = "'+book.all[i].title+'" title = "'+book.all[i].title+'">');
+var build_negot = function(type_div) {
+	var books = [];
+	for (var i = 0; i < book.all.length; i++) {
+		if (book.all[i].inNegotiation == true) { 
+			var cur_book = book.all[i];
+			books.push('<img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'">');
+		}
+	}
+	for (i = 0; i < books.length; i++) {
+		type_div.append(books[i]);	
+	}
+}
+
+/*
+* build available list
+*/
+var build_avail = function(type_div) {
+	var books = [];
+	for (var i = 0; i < User.all[0].booklist.length; i++) {
+		var cur_book = User.all[0].booklist[i];
+		books.push('<img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'">');
+	}
+	for (i = 0; i < books.length; i++) {
 		type_div.append(books[i]);
 	}
+}
 
+/*
+* build wishlist
+*/
+var build_wish = function(type_div) {
+	var books = [];
+	for (var i = 0; i < User.all[0].wishlist.length; i++) {
+		var cur_book = User.all[0].wishlist[i];
+		books.push('<img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'">');
+	}
+	for (i = 0; i < books.length; i++) {
+		type_div.append(books[i]);
+	}
+}
+
+/*
+* helper function
+* to build history list
+*/
+var build_hist = function(type_div) {
+	var books = [];
+	for (var i = 0; i < book.all.length; i++) {
+		if (book.all[i].inNegotiation == true) { 
+			var cur_book = book.all[i];
+			books.push('<img id = "'+cur_book.title+'"class = "bookimg" src="'+cur_book.cover+'"alt = "'+cur_book.title+'" title = "'+cur_book.title+'">');
+		}
+	}
+	for (i = 0; i < books.length; i++) {
+		type_div.append(books[i]);	
+	}
 }
 /* Builds a feed
 * needs to be event-driven
@@ -113,8 +159,7 @@ var manage_feed = function() {
 /*
 * manage list actions
 */
-var manage_lists = function(first) {
-	this.first = first;
+var manage_lists = function() {
 	$(".books").mouseenter(function(e) {
 		$("#helpful").fadeIn();			
 	});		
@@ -122,15 +167,14 @@ var manage_lists = function(first) {
 		$("#helpful").fadeOut('slow');
 
 	});
-	$(".books > div > img").mouseenter(function(e) {
+	$(".books img").mouseenter(function(e) {
 		$(this).css("border", "2px solid #556B25");
 	});
-	$(".books > div > img").mouseleave(function(e) {
+	$(".books img").mouseleave(function(e) {
 		$(this).css("border", "2px solid #ffffff");
 	});
 }	
 /*TODO
-* add ranking system
 * clean-up jquery code
 * * make more readable
 * * * learn about style rules for having html
