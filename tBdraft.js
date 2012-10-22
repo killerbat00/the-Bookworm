@@ -1,24 +1,11 @@
 $(document).ready(function () {
 //	alert('Init function');	
+	var first = true;
 	build_user();
 	build_book_lists();
 	build_feed();
-	
-
-/*
-* Playing with animation
-* effects for hiding
-* news stories
-*/
-	$("#killerbat00").delay().slideUp('slow');
-	$("#pdelvec").delay(3100).slideUp('slow');	
-	$("#aironrailroad").delay(6200).slideUp('slow');
-	$("#RevoltSheWrote").delay(9300).slideUp('slow');
-	$("#takeapartyrhead").delay(12400).slideUp('slow');
-	$("#mmelton").delay(15500).slideUp('slow');
-	$("#satansaysdance").delay(18600).slideUp('slow');
-	$("#rahulsays").delay(21700).slideUp('slow');
-
+	manage_feed();
+	manage_lists(first);
 });
 
 /*
@@ -33,12 +20,14 @@ var build_user = function() {
 	var user_location = $('<p id="location"></p>');
 	var user_ranking = $('<p id="ranking"></p>');
 	var add_book = $('<p><a href="#" class ="addbook" >Add/Delete Book</a></p>');	
+	var helpful = $('<p id="helpful">(Click book for info)</p>');
 	
 	main_div.append(user_uname.append(user.username));
 	main_div.append(user_avatar);
 	main_div.append(user_location.append(user.locate));
 	main_div.append(user_ranking.append('Ranking: <img class = "stars" src="images/Stars.png" alt="stars" title="stars"></p>'));
 	main_div.append(add_book);
+	main_div.append(helpful.hide());
 }
 
 /*
@@ -51,15 +40,18 @@ var build_user = function() {
 * popup for adding? 
 */
 var build_book_lists = function() {
+	var root = $('.books');
+	var helpful = $('<p>Click book for more info</p>');
 	var negot_div = $('#negotiations');
 	var avail_div = $('#available');
 	var wish_div = $('#wishlist');
 	var hist_div = $('#history');
-
+	
 	build_list(negot_div);
 	build_list(avail_div);
 	build_list(wish_div);
-	build_list(hist_div);		
+	build_list(hist_div);
+	
 }
 
 /*
@@ -70,9 +62,7 @@ var build_list = function(type_div) {
 	var books = [];	
 	var books2 = [];
 	for(var i = 0; i < book.all.length; i++){
-		books.push('<img id = "book" class = "bookimg" src = "'+book.all[i].cover+'" alt = "'+book.all[i].title+'" title = "'+book.all[i].title+'">');
-		type_div.append(books[i]);
-		type_div.append(books[i]);	
+		books.push('<img id = "'+book.all[i].title+'"class = "bookimg" src = "'+book.all[i].cover+'" alt = "'+book.all[i].title+'" title = "'+book.all[i].title+'">');
 		type_div.append(books[i]);
 	}
 
@@ -85,18 +75,60 @@ var build_feed = function() {
 	var root_div = $('#feed');
 		
 	for(var i = 0; i < News.all.length; i++) {
-		var hideme = $('<p><a href="#">Hide</a></p>');
+		var hideme = $('<p id="hide"><a href="#">Hide</a></p>');
 		var news = News.all[i];
 		var use_div = $('<div id='+news.user+'></div>');
-		var content = $('<p><img class = "avatar" src = "'+news.avatar+'" alt="username" title="username"></p>');
+		var content = $('<p><img class = "avatar" src = "'+news.avatar+'" alt="'+news.user+'" title="'+news.user+'"></p>');
 		var story = String(" " + news.user + " " + news.story);	
 		content.append(story);
 		use_div.append(content);
-		use_div.append(hideme);
+		use_div.append(hideme.hide());
 		root_div.append(use_div);
 	}	
 }
 
+/*
+* manage feed actions
+*/
+var manage_feed = function() {
+	//Show hide option on mouseenter
+	$("#feed div").mouseenter(function(e) {
+		e.stopPropagation();	
+		$(this).children('#hide').slideDown('fast');
+	});
+	//Hide hide option on mouseleave
+	$("#feed div").mouseleave(function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		$(this).children('#hide').slideUp('slow');
+	});
+	//hide story if requested	
+	$("#feed a").click(function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		$(this).parent().parent().slideUp('slow');
+	});
+}
+
+/*
+* manage list actions
+*/
+var manage_lists = function(first) {
+	this.first = first;
+	$(".books").mouseenter(function(e) {
+		$("#helpful").fadeIn();			
+	});		
+	$(".books").mouseleave(function(e) {
+		$("#helpful").fadeOut('slow');
+
+	});
+	$(".books > div > img").mouseenter(function(e) {
+		$(this).css("border", "2px solid #556B25");
+	});
+	$(".books > div > img").mouseleave(function(e) {
+		$(this).css("border", "2px solid #ffffff");
+	});
+}	
 /*TODO
 * add ranking system
 * clean-up jquery code

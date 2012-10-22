@@ -92,6 +92,10 @@ body{
 	color: DarkGreen;
 }
 
+#helpful {
+	margin-bottom: 0px;
+	padding-top: 35px;
+}
 
 .form-title{
 	clear: both;
@@ -103,6 +107,7 @@ body{
 }
 
 .books > div {
+	position: relative;
 	width: 540px;
 	height: 80px;
 	overflow-x: auto;
@@ -110,7 +115,7 @@ body{
 	white-space: nowrap;
 }
 
-#book {
+.bookimg {
 	width: 40px;
 	border: 2px solid #ffffff;
 } 
